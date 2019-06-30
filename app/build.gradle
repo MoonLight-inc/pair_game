@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion 29
     buildToolsVersion "29.0.0"
     defaultConfig {
         applicationId "com.example.pair_game"
@@ -34,4 +34,5 @@ dependencies {
     implementation 'androidx.navigation:navigation-fragment:2.1.0-alpha05'
     implementation 'androidx.navigation:navigation-ui:2.1.0-alpha05'
     implementation 'com.hold1:bubblegum:0.0.4'
+    implementation 'com.github.glomadrian:Grav:1.1'
 }
