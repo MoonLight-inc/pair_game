@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav"
+    app:startDestination="@id/start_menu">
+
+    <fragment
+        android:id="@+id/start_menu"
+        android:name="com.example.pair_game.MenuStart"
+        android:label="fragment_start_menu"
+        tools:layout="@layout/fragment_menustart" >
+        <action
+            android:id="@+id/action_start_menu_to_single_game_menu"
+            app:destination="@id/single_game_menu" />
+        <action
+            android:id="@+id/action_start_menu_to_pvp_game_menu"
+            app:destination="@id/pvp_game_menu" />
+    </fragment>
+    <fragment
+        android:id="@+id/single_game_menu"
+        android:name="com.example.pair_game.MenuSingle"
+        android:label="fragment_single_game_menu"
+        tools:layout="@layout/fragment_menusingle" >
+        <action
+            android:id="@+id/action_single_game_menu_to_tableActivity"
+            app:destination="@id/tableActivity" />
+        <argument
+            android:name="type"
+            app:argType="string" />
+    </fragment>
+    <activity
+        android:id="@+id/tableActivity"
+        android:name="com.example.pair_game.TableActivity"
+        android:label="activity_table"
+        tools:layout="@layout/activity_table" />
+    <fragment
+        android:id="@+id/pvp_game_menu"
+        android:name="com.example.pair_game.MenuPVP"
+        android:label="fragment_pvp_game_menu"
+        tools:layout="@layout/fragment_menupvp" >
+        <action
+            android:id="@+id/action_pvp_game_menu_to_tableActivity"
+            app:destination="@id/tableActivity" />
+        <argument
+            android:name="type"
+            app:argType="string" />
+    </fragment>
+</navigation>
