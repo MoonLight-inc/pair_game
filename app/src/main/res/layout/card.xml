@@ -11,11 +11,12 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_margin="3dp"
         android:adjustViewBounds="true"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:srcCompat="@drawable/shirt"
+        tools:srcCompat="@drawable/shirt" />
 
 
 </androidx.cardview.widget.CardView>
