@@ -12,7 +12,7 @@ public class MainActivity extends AppCompatActivity   {
     //NavController navController;
 
 
-    ImageButton btn_back;
+    protected static ImageButton btn_back;
 
     public static int convertDpToPixels(float dp, Context context) {
         int px = (int) TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, dp, context.getResources().getDisplayMetrics());

@@ -14,13 +14,17 @@ import android.widget.Button;
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
 
+import static com.example.pair_game.MainActivity.btn_back;
+
 
 public class MenuStart extends Fragment {
     public MenuStart() {
         // Required empty public constructor
     }
-    Button btn_single;
-    Button btn_multi;
+
+    private Button btn_single;
+    private Button btn_multi;
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -36,7 +40,7 @@ public class MenuStart extends Fragment {
                 ObjectAnimator.ofFloat(btn_single, "scaleX", 1, 0.9f, 0.9f, 1.1f, 1.1f, 1.1f, 1.1f, 1.1f, 1.1f, 1),
                 ObjectAnimator.ofFloat(btn_single, "scaleY", 1, 0.9f, 0.9f, 1.1f, 1.1f, 1.1f, 1.1f, 1.1f, 1.1f, 1),
                 ObjectAnimator.ofFloat(btn_single, "rotation", 0, -3, -3, 3, -3, 3, -3, 3, -3, 0),
-                ObjectAnimator.ofArgb(btn_single, "textColor", Color.WHITE, Color.RED, Color.GRAY, Color.GREEN));
+                ObjectAnimator.ofArgb(btn_single, "textColor", Color.WHITE, Color.RED, Color.GRAY, Color.GREEN, Color.WHITE, Color.RED, Color.GRAY, Color.GREEN));
         animatorSet.addListener(new AnimatorListenerAdapter() {
             private boolean mCanceled;
 
@@ -59,5 +63,12 @@ public class MenuStart extends Fragment {
         });
         animatorSet.start();
         return view;
+    }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        btn_back.setVisibility(View.GONE);
+        btn_back.setClickable(false);
     }
 }

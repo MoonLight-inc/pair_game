@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 
 import androidx.fragment.app.Fragment;
 
+import static com.example.pair_game.MainActivity.btn_back;
+
 public class MenuPVP extends Fragment {
 
     public MenuPVP() {
@@ -25,5 +27,10 @@ public class MenuPVP extends Fragment {
         return inflater.inflate(R.layout.fragment_menupvp, container, false);
     }
 
-
+    @Override
+    public void onStart() {
+        super.onStart();
+        btn_back.setVisibility(View.VISIBLE);
+        btn_back.setClickable(true);
+    }
 }
