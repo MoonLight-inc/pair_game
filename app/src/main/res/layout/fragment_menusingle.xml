@@ -5,17 +5,24 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MenuSingle"
+        android:gravity="center"
         android:orientation="vertical">
 
         <Button
             android:id="@+id/button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Нормально" />
+            style="@android:style/Widget.Material.Button.Borderless"
+            android:text="Нормально"
+            android:textSize="36sp"
+            android:textStyle="bold" />
 
         <Button
             android:id="@+id/button2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Хардкор" />
+            style="@android:style/Widget.Material.Button.Borderless"
+            android:text="Хардкор"
+            android:textSize="36sp"
+            android:textStyle="bold" />
     </LinearLayout>

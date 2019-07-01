@@ -10,13 +10,21 @@
 
     <Button
         android:id="@+id/button"
+        style="@android:style/Widget.Material.Button.Borderless.Colored"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Одиночная игра" />
+        android:text="Одиночная игра"
+        android:textColor="#45FFFFFF"
+        android:textSize="36sp"
+        android:textStyle="bold" />
 
     <Button
         android:id="@+id/button2"
+        style="@android:style/Widget.Material.Button.Borderless"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Мультиплеер" />
+        android:text="Мультиплеер"
+        android:textColor="#80FFFFFF"
+        android:textSize="36sp"
+        android:textStyle="bold" />
 </LinearLayout>
