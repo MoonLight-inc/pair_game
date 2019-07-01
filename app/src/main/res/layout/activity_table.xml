@@ -15,7 +15,7 @@
         android:layout_gravity="center"
         android:layout_marginTop="56dp"
         android:gravity="center"
-        android:horizontalSpacing="15dp"
+        android:horizontalSpacing="12dp"
         android:nestedScrollingEnabled="false"
         android:numColumns="9"
         android:rowCount="4"

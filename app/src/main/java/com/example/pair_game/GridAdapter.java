@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import androidx.cardview.widget.CardView;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import static com.example.pair_game.TableActivity.card_h;
 
@@ -72,73 +73,15 @@ public class GridAdapter extends BaseAdapter {
 
             @Override
             public void onClick(View v) {
-                ObjectAnimator oa1;
-                ObjectAnimator oa2;
-
                 if (clickFlag)
                     if (card1 == null) {
                         card1 = cards.get(position);
-                        oa1 = ObjectAnimator.ofFloat(card1.getImg(), "scaleX", 1f, 0f);
-                        oa2 = ObjectAnimator.ofFloat(card1.getImg(), "scaleX", 0f, 1f);
-                        oa1.setInterpolator(new DecelerateInterpolator());
-                        oa2.setInterpolator(new AccelerateDecelerateInterpolator());
-//                        card1.getImg().setImageResource(context.getResources()
-//                                .getIdentifier("shirt",
-//                                        "drawable",
-//                                        context.getPackageName()));
-                        oa1.addListener(new AnimatorListenerAdapter() {
-                            @Override
-                            public void onAnimationEnd(Animator animation) {
-                                super.onAnimationEnd(animation);
-                                card1.setPosition(position);
-                                card1.getImg().setImageResource(v.getContext()
-                                        .getResources()
-                                        .getIdentifier("img_" + cards.get(position).getRank() + "_of_" + cards.get(position).getSuit(),
-                                                "drawable",
-                                                context.getPackageName()));
-                                oa2.start();
-                            }
-                        });
-                        oa1.setDuration(500);
-                        oa2.setDuration(500);
-                        oa1.start();
-
+                        flipCard(card1, 500, v, true);
                         card1.getImg().refreshDrawableState();
                     } else if (card1 != cards.get(position)) {
                         clickFlag = false;
                         card2 = cards.get(position);
-                        oa1 = ObjectAnimator.ofFloat(card2.getImg(), "scaleX", 1f, 0f);
-                        oa2 = ObjectAnimator.ofFloat(card2.getImg(), "scaleX", 0f, 1f);
-                        oa1.setInterpolator(new DecelerateInterpolator());
-                        oa2.setInterpolator(new AccelerateDecelerateInterpolator());
-                        oa1.addListener(new AnimatorListenerAdapter() {
-                            @Override
-                            public void onAnimationEnd(Animator animation) {
-                                super.onAnimationEnd(animation);
-                                card2.setPosition(position);
-                                card2.getImg().setImageResource(v.getContext()
-                                        .getResources()
-                                        .getIdentifier("img_" + cards.get(position).getRank() + "_of_" + cards.get(position).getSuit(),
-                                                "drawable",
-                                                context.getPackageName()));
-                                oa2.start();
-                            }
-                        });
-                        oa1.setDuration(500);
-                        oa2.setDuration(500);
-                        oa1.start();
-
-
-//                        card2.setPosition(position);
-//                        card2.getImg().setImageResource(0);
-//                        card2.getImg().setImageResource(v.getContext()
-//                                .getResources()
-//                                .getIdentifier("img_" + cards.get(position).getRank() + "_of_" + cards.get(position).getSuit(),
-//                                        "drawable",
-//                                        context.getPackageName()));
-//                        card2.getImg().refreshDrawableState();
-//                        card2.getImg().invalidate();
-//                        card2.getImg().postInvalidate();
+                        flipCard(card2, 500, v, true);
 
                         if ((card1.getRank() == card2.getRank()) &&
                                 (((card1.getSuit() == "hearts") && (card2.getSuit() == "diamonds")) ||
@@ -152,25 +95,12 @@ public class GridAdapter extends BaseAdapter {
                             card2.getBorder().setVisibility(View.INVISIBLE);
                             card2.getImg().setClickable(false);
                             clickFlag = true;
-
                         } else {
                             handler.postDelayed(new Runnable() {
                                 @Override
                                 public void run() {
-
-
-//                                    cards.forEach(card -> card.getImg().setImageResource(context.getResources()
-//                                            .getIdentifier("shirt",
-//                                                    "drawable",
-//                                                    context.getPackageName())));
-                                    card1.getImg().setImageResource(context.getResources()
-                                            .getIdentifier("shirt",
-                                                    "drawable",
-                                                    context.getPackageName()));
-                                    card2.getImg().setImageResource(context.getResources()
-                                            .getIdentifier("shirt",
-                                                    "drawable",
-                                                    context.getPackageName()));
+                                    flipCard(card1, new Random().nextInt(300) + 50, v, false);
+                                    flipCard(card2, new Random().nextInt(300) + 150, v, false);
                                     card1 = null;
                                     clickFlag = true;
                                 }
@@ -183,4 +113,28 @@ public class GridAdapter extends BaseAdapter {
         return gridView;
     }
 
+    private void flipCard(Card card, int duration, View v, boolean shirt) {
+        ObjectAnimator oa1;
+        ObjectAnimator oa2;
+        //Card card =cards.get(position);
+        oa1 = ObjectAnimator.ofFloat(card.getImg(), "scaleX", 1f, 0f);
+        oa2 = ObjectAnimator.ofFloat(card.getImg(), "scaleX", 0f, 1f);
+        oa1.setInterpolator(new DecelerateInterpolator());
+        oa2.setInterpolator(new AccelerateDecelerateInterpolator());
+        oa1.addListener(new AnimatorListenerAdapter() {
+            @Override
+            public void onAnimationEnd(Animator animation) {
+                super.onAnimationEnd(animation);
+                card.getImg().setImageResource(v.getContext()
+                        .getResources()
+                        .getIdentifier(shirt ? "img_" + card.getRank() + "_of_" + card.getSuit() : "shirt",
+                                "drawable",
+                                context.getPackageName()));
+                oa2.start();
+            }
+        });
+        oa1.setDuration(duration);
+        oa2.setDuration(duration);
+        oa1.start();
+    }
 }
