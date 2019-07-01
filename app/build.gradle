@@ -35,4 +35,7 @@ dependencies {
     implementation 'androidx.navigation:navigation-ui:2.1.0-alpha05'
     implementation 'com.hold1:bubblegum:0.0.4'
     implementation 'com.github.glomadrian:Grav:1.1'
+    //implementation 'com.android.support:support-compat:25.1.1'
+    implementation 'com.daimajia.easing:library:2.0@aar'
+    implementation 'com.daimajia.androidanimations:library:2.3@aar'
 }
