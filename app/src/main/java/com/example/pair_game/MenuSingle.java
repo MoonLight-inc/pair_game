@@ -26,15 +26,9 @@ public class MenuSingle extends Fragment {
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_menusingle, container, false);
         btn_hardcore = v.findViewById(R.id.button2);
-        btn_hardcore.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_single_game_menu_to_tableActivity, null));
-        btn_normal = v.findViewById(R.id.button);
-        btn_normal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                btn_normal.setVisibility(View.GONE);
-                btn_normal.setVisibility(View.VISIBLE);
-            }
-        });
+        btn_hardcore.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_single_game_menu_to_table2, null));
+//        btn_normal = v.findViewById(R.id.button);
+//        btn_normal.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_single_game_menu_to_table2));
 
 
         YoYo.with(Techniques.Tada)

@@ -18,7 +18,7 @@ import androidx.cardview.widget.CardView;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static com.example.pair_game.TableActivity.card_h;
+import static com.example.pair_game.TableFragment.card_h;
 
 
 public class GridAdapter extends BaseAdapter {
@@ -54,23 +54,17 @@ public class GridAdapter extends BaseAdapter {
     public View getView(final int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = (LayoutInflater) context
                 .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-        View gridView;
-        final ImageView imageView;
-        final CardView border;
 
-        gridView = inflater.inflate(R.layout.card, null);
-        imageView = gridView
-                .findViewById(R.id.imageView);
-
+        View gridView = inflater.inflate(R.layout.card, null);
+        ImageView imageView = gridView.findViewById(R.id.imageView);
+        CardView border = gridView.findViewById(R.id.cardView);
 
         imageView.setMaxHeight(card_h);
-        border = gridView
-                .findViewById(R.id.cardView);
 
         cards.get(position).setImg(imageView);
         cards.get(position).setBorder(border);
-        gridView.setOnClickListener(new View.OnClickListener() {
 
+        gridView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if (clickFlag)
@@ -105,7 +99,6 @@ public class GridAdapter extends BaseAdapter {
                                     clickFlag = true;
                                 }
                             }, 3000);
-
                         }
                     }
             }
@@ -116,7 +109,6 @@ public class GridAdapter extends BaseAdapter {
     private void flipCard(Card card, int duration, View v, boolean shirt) {
         ObjectAnimator oa1;
         ObjectAnimator oa2;
-        //Card card =cards.get(position);
         oa1 = ObjectAnimator.ofFloat(card.getImg(), "scaleX", 1f, 0f);
         oa2 = ObjectAnimator.ofFloat(card.getImg(), "scaleX", 0f, 1f);
         oa1.setInterpolator(new DecelerateInterpolator());

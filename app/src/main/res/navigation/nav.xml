@@ -30,33 +30,28 @@
         android:name="com.example.pair_game.MenuSingle"
         android:label="fragment_single_game_menu"
         tools:layout="@layout/fragment_menusingle" >
-        <action
-            android:id="@+id/action_single_game_menu_to_tableActivity"
-            app:destination="@id/tableActivity" />
         <argument
             android:name="type"
             app:argType="string" />
+        <action
+            android:id="@+id/action_single_game_menu_to_table2"
+            app:destination="@id/table" />
     </fragment>
-    <activity
-        android:id="@+id/tableActivity"
-        android:name="com.example.pair_game.TableActivity"
-        android:label="activity_table"
-        tools:layout="@layout/activity_table" />
     <fragment
         android:id="@+id/pvp_game_menu"
         android:name="com.example.pair_game.MenuPVP"
         android:label="fragment_pvp_game_menu"
         tools:layout="@layout/fragment_menupvp" >
-        <action
-            android:id="@+id/action_pvp_game_menu_to_tableActivity"
-            app:destination="@id/tableActivity" />
         <argument
             android:name="type"
             app:argType="string" />
+        <action
+            android:id="@+id/action_pvp_game_menu_to_table"
+            app:destination="@id/table" />
     </fragment>
     <fragment
         android:id="@+id/table"
-        android:name="com.example.pair_game.table"
+        android:name="com.example.pair_game.TableFragment"
         android:label="fragment_table"
         tools:layout="@layout/fragment_table" />
 </navigation>
