@@ -18,16 +18,17 @@ import androidx.cardview.widget.CardView;
 import java.util.ArrayList;
 import java.util.Random;
 
-import static com.example.pair_game.TableFragment.card_h;
-
+import static com.example.pair_game.MainActivity.score;
+import static com.example.pair_game.MainActivity.txt_score;
+import static com.example.pair_game.main_frag.TableFragment.card_h;
 
 public class GridAdapter extends BaseAdapter {
 
-    public Card card1, card2;
+    private Card card1, card2;
     private Context context;
     private ArrayList<Card> cards;
-    public Handler handler = new Handler();
-    boolean clickFlag = true;
+    private Handler handler = new Handler();
+    private boolean clickFlag = true;
 
     public GridAdapter(Context context, ArrayList<Card> cards) {
         super();
@@ -67,15 +68,36 @@ public class GridAdapter extends BaseAdapter {
         gridView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+
+//                handler.postDelayed(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        flipCard(card1, new Random().nextInt(100) + 50, v, false);
+//                        flipCard(card2, new Random().nextInt(100) + 50, v, false);
+//                        card1 = null;
+//                        clickFlag = true;
+//                    }
+//                }, 3000);
+                if (!clickFlag)
+                    if (card1 != null) {
+                        flipCard(card1, new Random().nextInt(100) + 50, v, false);
+                        flipCard(card2, new Random().nextInt(100) + 50, v, false);
+                        card1 = null;
+                        score -= 100;
+                        txt_score.setText("SCORE: " + score);
+                        clickFlag = true;
+                    }
+
                 if (clickFlag)
                     if (card1 == null) {
                         card1 = cards.get(position);
-                        flipCard(card1, 500, v, true);
+                        flipCard(card1, 200, v, true);
                         card1.getImg().refreshDrawableState();
                     } else if (card1 != cards.get(position)) {
                         clickFlag = false;
                         card2 = cards.get(position);
-                        flipCard(card2, 500, v, true);
+                        flipCard(card2, 200, v, true);
 
                         if ((card1.getRank() == card2.getRank()) &&
                                 (((card1.getSuit() == "hearts") && (card2.getSuit() == "diamonds")) ||
@@ -88,17 +110,9 @@ public class GridAdapter extends BaseAdapter {
                             card2.getImg().setVisibility(View.INVISIBLE);
                             card2.getBorder().setVisibility(View.INVISIBLE);
                             card2.getImg().setClickable(false);
+                            score += 1000;
+                            txt_score.setText("SCORE: " + score);
                             clickFlag = true;
-                        } else {
-                            handler.postDelayed(new Runnable() {
-                                @Override
-                                public void run() {
-                                    flipCard(card1, new Random().nextInt(300) + 50, v, false);
-                                    flipCard(card2, new Random().nextInt(300) + 150, v, false);
-                                    card1 = null;
-                                    clickFlag = true;
-                                }
-                            }, 3000);
                         }
                     }
             }

@@ -1,4 +1,4 @@
-package com.example.pair_game;
+package com.example.pair_game.main_frag;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
@@ -13,6 +13,8 @@ import android.widget.Button;
 
 import androidx.fragment.app.Fragment;
 import androidx.navigation.Navigation;
+
+import com.example.pair_game.R;
 
 import static com.example.pair_game.MainActivity.btn_back;
 

@@ -1,4 +1,4 @@
-package com.example.pair_game;
+package com.example.pair_game.main_frag;
 
 import android.graphics.Point;
 import android.os.Bundle;
@@ -11,12 +11,17 @@ import android.widget.GridView;
 
 import androidx.fragment.app.Fragment;
 
+import com.example.pair_game.Card;
+import com.example.pair_game.GridAdapter;
+import com.example.pair_game.R;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
 
 import static com.example.pair_game.MainActivity.convertDpToPixels;
-
+import static com.example.pair_game.MainActivity.score;
+import static com.example.pair_game.MainActivity.txt_score;
 
 public class TableFragment extends Fragment {
 
@@ -47,7 +52,8 @@ public class TableFragment extends Fragment {
         height = size.y;
         Log.d("TAGG", height + " " + width + " DISPLAY");
         card_h = (height - convertDpToPixels(100, container.getContext())) / 4;
-
+        score = 0;
+        txt_score.setText("SCORE: 0");
 
         ArrayList<Card> cards = new ArrayList<Card>();
         ArrayList<String> ranks = new ArrayList<String>(), suits = new ArrayList<String>(), cardId = new ArrayList<String>();

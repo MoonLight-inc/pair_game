@@ -1,4 +1,4 @@
-package com.example.pair_game;
+package com.example.pair_game.main_frag;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -11,8 +11,10 @@ import androidx.navigation.Navigation;
 
 import com.daimajia.androidanimations.library.Techniques;
 import com.daimajia.androidanimations.library.YoYo;
+import com.example.pair_game.R;
 
 import static com.example.pair_game.MainActivity.btn_back;
+import static com.example.pair_game.MainActivity.txt_score;
 
 
 public class MenuSingle extends Fragment {
@@ -20,6 +22,7 @@ public class MenuSingle extends Fragment {
     public MenuSingle() {
         // Required empty public constructor
     }
+
     Button btn_hardcore;
     Button btn_normal;
 
@@ -31,7 +34,7 @@ public class MenuSingle extends Fragment {
         btn_hardcore.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_single_game_menu_to_table2, null));
 //        btn_normal = v.findViewById(R.id.button);
 //        btn_normal.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_single_game_menu_to_table2));
-
+        txt_score.setText("");
         YoYo.with(Techniques.Bounce)
                 .duration(3000)
                 .delay(1000)
