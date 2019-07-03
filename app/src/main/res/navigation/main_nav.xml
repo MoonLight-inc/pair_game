@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/start_menu"
-        android:name="com.example.pair_game.MenuStart"
+        android:name="com.example.pair_game.main_frag.MenuStart"
         android:label="fragment_start_menu"
         tools:layout="@layout/fragment_menustart" >
         <action
@@ -27,7 +27,7 @@
     </fragment>
     <fragment
         android:id="@+id/single_game_menu"
-        android:name="com.example.pair_game.MenuSingle"
+        android:name="com.example.pair_game.main_frag.MenuSingle"
         android:label="fragment_single_game_menu"
         tools:layout="@layout/fragment_menusingle" >
         <argument
@@ -39,7 +39,7 @@
     </fragment>
     <fragment
         android:id="@+id/pvp_game_menu"
-        android:name="com.example.pair_game.MenuPVP"
+        android:name="com.example.pair_game.main_frag.MenuPVP"
         android:label="fragment_pvp_game_menu"
         tools:layout="@layout/fragment_menupvp" >
         <argument
@@ -51,7 +51,7 @@
     </fragment>
     <fragment
         android:id="@+id/table"
-        android:name="com.example.pair_game.TableFragment"
+        android:name="com.example.pair_game.main_frag.TableFragment"
         android:label="fragment_table"
         tools:layout="@layout/fragment_table" />
 </navigation>

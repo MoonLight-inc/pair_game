@@ -4,7 +4,7 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".MenuSingle"
+        tools:context=".main_frag.MenuSingle"
         android:gravity="center"
         android:orientation="vertical">
 
@@ -14,6 +14,7 @@
             android:layout_height="wrap_content"
             style="@android:style/Widget.Material.Button.Borderless"
             android:text="Нормально"
+            android:textColor="#88888888"
             android:textSize="36sp"
             android:textStyle="bold" />
 
@@ -22,6 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             style="@android:style/Widget.Material.Button.Borderless"
+            android:textColor="#88FFFFFF"
             android:text="Хардкор"
             android:textSize="36sp"
             android:textStyle="bold" />

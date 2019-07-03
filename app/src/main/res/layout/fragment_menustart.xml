@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context=".MenuStart">
+    tools:context=".main_frag.MenuStart">
 
     <Button
         android:id="@+id/button"
@@ -14,7 +14,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Одиночная игра"
-        android:textColor="#45FFFFFF"
+        android:textColor="#80FFFFFF"
         android:textSize="36sp"
         android:textStyle="bold" />
 
@@ -24,7 +24,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Мультиплеер"
-        android:textColor="#80FFFFFF"
+        android:textColor="#88888888"
         android:textSize="36sp"
         android:textStyle="bold" />
 </LinearLayout>
