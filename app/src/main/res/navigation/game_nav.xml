@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/game_nav"
+    app:startDestination="@id/placeholder">
+
+    <fragment
+        android:id="@+id/placeholder"
+        android:name="androidx.fragment.app.Fragment">
+        <action
+            android:id="@+id/action_placeholder_to_solo_toolbar2"
+            app:destination="@id/solo_toolbar2" />
+        <action
+            android:id="@+id/action_placeholder_to_multi_toolbar"
+            app:destination="@id/multi_toolbar" />
+    </fragment>
+    <fragment
+        android:id="@+id/solo_toolbar2"
+        android:name="com.example.pair_game.Solo_Toolbar"
+        android:label="fragment_solo_toolbar"
+        tools:layout="@layout/fragment_solo_toolbar" />
+    <fragment
+        android:id="@+id/multi_toolbar"
+        android:name="com.example.pair_game.Multi_Toolbar"
+        android:label="fragment_multi_toolbar"
+        tools:layout="@layout/fragment_multi_toolbar" />
+</navigation>
